@@ -82,7 +82,7 @@ Slickstream maintains a consistent styling for its widgets so they can work easi
 
 ### Theme color
 
-**--slick-site-color**  The site color sets the default color of our floating buttons and themes the search panel. 
+**--slick-site-color**:  The site color sets the default color of our floating buttons and themes the search panel. 
 
 e.g.
 
@@ -96,19 +96,19 @@ body {
 
 Filmstrip inherits the `font-family` from the container it is in. 
 
-**--film-strip-card-image-radius** Sets the border-radius of the images in the filmstrip
+**--film-strip-card-image-radius**: Sets the border-radius of the images in the filmstrip
 
-**--slick-strip-icon-bg** Sets the background color of the scroll arrows on the filmstrip
+**--slick-strip-icon-bg**: Sets the background color of the scroll arrows on the filmstrip
 
-**--slick-icon-color** Sets the color of the scroll arrows on the filmstrip
+**--slick-icon-color**: Sets the color of the scroll arrows on the filmstrip
 
-**--slick-filmstrip-font-size** Font size of the text
+**--slick-filmstrip-font-size**: Font size of the text
 
-**--slick-filmstrip-line-height** Line hight of the text content
+**--slick-filmstrip-line-height**: Line hight of the text content
 
-**--slick-filmstrip-letter-spacing** Letter spacing of the text
+**--slick-filmstrip-letter-spacing**: Letter spacing of the text
 
-**--slick-filmstrip-card-background** Background of each card in the filmstrip. 
+**--slick-filmstrip-card-background**: Background of each card in the filmstrip. 
 
 You can also add padding around the strip by adding CSS to the container of the filmstrip, which is a div with the class `slick-film-strip`
 
@@ -123,29 +123,29 @@ You can also add padding around the strip by adding CSS to the container of the 
 
 The toolbar uses all the styles in the film strip, and a couple more
 
-**--slick-toolbar-background** Background of the toolbar
+**--slick-toolbar-background**: Background of the toolbar
 
-**--slick-toolbar-shadow** Box-shadow of the toolbar when it comes down from the top. 
+**--slick-toolbar-shadow**: Box-shadow of the toolbar when it comes down from the top. 
 
 ### Floating Buttons
 
 The floating buttons (heart, search) are themed automatically based on the site's theme color. But they could be further customized.
 
-**--slick-heartbeat-color** Color of the heart button
+**--slick-heartbeat-color**: Color of the heart button
 
-**--slick-heartbeat-background** Background cplor of the heart button
+**--slick-heartbeat-background**: Background cplor of the heart button
 
-**--slick-search-fab-background** Background color of the search button
+**--slick-search-fab-background**: Background color of the search button
 
-**--slick-search-fab-color** Color of the search icon on the button
+**--slick-search-fab-color**: Color of the search icon on the button
 
-**--slick-btt-fab-background** Background of the back-to-top button 
+**--slick-btt-fab-background**: Background of the back-to-top button 
 
-**--slick-btt-fab-color** Color of the back-to-top icon on the button
+**--slick-btt-fab-color**: Color of the back-to-top icon on the button
 
 ### Search Panel
 
-**--slick-discovery-text-highlight-color** When highlighting ingredients, color used to highlight them
+**--slick-discovery-text-highlight-color**: When highlighting ingredients, color used to highlight them
 
-**-slick-discovery-line-height** Line height of the text in search results
+**-slick-discovery-line-height**: Line height of the text in search results
 
