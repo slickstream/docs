@@ -147,5 +147,5 @@ The floating buttons (heart, search) are themed automatically based on the site'
 
 **--slick-discovery-text-highlight-color**: When highlighting ingredients, color used to highlight them
 
-**-slick-discovery-line-height**: Line height of the text in search results
+**--slick-discovery-line-height**: Line height of the text in search results
 
