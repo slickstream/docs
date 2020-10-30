@@ -52,7 +52,7 @@ Let's say you have a button and you'd like it to open Slickstream's search when 
 </a>
 ```
 
-Similarly you can configure the button to open the user's favorites by setting the `href` to **`#slick-search-favorites`**. 
+Similarly you can configure the button to open the user's favorites by setting the `href` to **`#slick-search-favorites`**. <br>
 **`#slick-search-related`** For related posts.<br>
 **`#slick-search-recent`** For latest posts.<br>
 **`#slick-search-popular`** For popular posts.<br>
