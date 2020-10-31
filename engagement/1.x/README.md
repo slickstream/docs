@@ -1,10 +1,19 @@
 # Slickstream Engagement Suite Developer Documentation (v1.x)
 
-## Widget placeholders
+This documentation is to support Slickstream customers and their web developers who wish to integrate Slickstream's Engagement Suite more seamlessly into their website.
 
-When Slickstream adds a widget on a page, it looks for an element (usually a `<div>`) with an appropriate class name and then injects the widget as a child of that element. 
+Slickstream is primarily a client-side technology -- meaning that we add functionality into a website from inside the browser, rather than when the pages are rendered by the web server.
 
-Websites can take advantage of this by pre-allocating a space for the widget. Allocating a space reduces the [Cumulative Layout Shift (CLS)](https://web.dev/cls/) on the page. 
+There are three ways in which website developers can improve integration with Slickstream:
+
+- [Positioning](#positioning)
+- [Activating](#activating)
+- [Styling](#styling-slickstream-widgets)
+- [Javascript API](#slickstream-javascript-api-v1.0)
+
+## Positioning
+
+Slickstream injects widgets onto a page after the page has loaded.  We inject these widgets into a container (as a child element of that container).  The container is typically a `<div>` with a certain CSS class.  We are able to add that container itself if necessary.  But it is even better if the page already has the container (as rendered by the server) so that it can pre-allocate space for our widget.  Allocating space reduces the [Cumulative Layout Shift (CLS)](https://web.dev/cls/) on the page and lets you be as specific as you like about the positioning of the Slickstream widget.  Our widgets are responsive and will use the available space appropriately.
 
 ### Filmstrip
 
@@ -38,9 +47,11 @@ To inject a content grid anywhere on the page, create a `div` with the class `sl
 
 Note in this example, the `data-config` attribute is set to identify the configuration set in the portal. If it is not specified, the first or default config is used.
 
-## Launching Slickstream's Search and Discovery Panel
+## Activating
 
-You may want to create a custom button that opens up Slickstream's search panel. There are two ways to do this:
+You may want to create a custom button or menu item that activates certain Slickstream features, including the search and discovery panel.  (If you wish to activate Slickstream's sign-up/sign-in dialog, use the [Client API](#slickstream-javascript-api-v1.0) below.)
+
+To activate the search and discovery panel, there are two ways to do this:
 
 ### Use `<a>` links
 
@@ -52,10 +63,11 @@ Let's say you have a button and you'd like it to open Slickstream's search when 
 </a>
 ```
 
-Similarly you can configure the button to open the user's favorites by setting the `href` to **`#slick-search-favorites`**. <br>
-**`#slick-search-related`** For related posts.<br>
-**`#slick-search-recent`** For latest posts.<br>
-**`#slick-search-popular`** For popular posts.<br>
+Similarly you can configure the button to open the panel into different states by setting the `href` to:
+* **`#slick-search-favorites`**: for listing viewer's favorites
+* **`#slick-search-related`**:  for listing other posts that are related to the current page
+* **`#slick-search-recent`**:  for listing the latest posts, or
+* **`#slick-search-popular`**:  ror popular posts
 
 ### Launching via JavaScript
 
@@ -149,3 +161,128 @@ The floating buttons (heart, search) are themed automatically based on the site'
 
 **--slick-discovery-line-height**: Line height of the text in search results
 
+## Slickstream Javascript API v1.0
+
+The Slickstream Javascript API provides access to a minimal set of Slickstream services from within the browser.  This API will be expanded in the next release to cover most Slickstream capabilities.  
+
+**NOTE**: We will continue to support this 1.0 API for some time, but the 2.0 API is planned to include major changes and is unlikely to be backward-compatible.
+
+### Events
+
+Add an event listener on the document object to be notified when certain events occur:
+
+- **slickstream-ready**: This event fires when the slickstream API is ready for use.
+- **slickstream-user-status-change**:  This event fires when the current user's sign-in state changes.
+- **slickstream-favorite-change**: This event fires when the favorite state of the current page for the current viewer has changed.
+
+ 
+### Accessing the API
+Once loaded, the Slickstream API is available via the window object:
+
+```window.slickstream.v1```
+
+
+### User
+The user member of the API object provides access to features related to signing in, signing up, identity, etc.
+
+* **status**:  This tells you the login status of the user (i.e., the current viewer of the page).  It is one of:
+  * 'anonymous':  This is for any user that has not been authenticated;
+  * 'signed-in':  This is for any user that has been authenticated via Slickstream sign-in;
+  * 'client-auth':  This is for a user who has been authenticated because of meta-tags added by the site itself (e.g., based on Slickstream's WordPress plugin for viewers signed into WordPress)
+* **emailAddress**:  If the current user is authenticated, this is the email address of that user.
+* **name**:  If the current user is authenticated, and their name is known, this returns that value.
+* **openSignInDialog(emailAddress?)**: This causes Slickstream's sign-in dialog to be shown to the viewer.  If the email address is provided, it will be used to pre-populate the corresponding field in that dialog.  Note that this covers both sign-in and sign-up scenarios.  Nothing is returned.
+* **signOut()**:  This tells Slickstream to sign-out the current viewer if appropriate.  Note that this will not affect the status of a viewer in the 'client-auth' state -- as we cannot affect WordPress (or other site server) sign-in state.  This returns a Promise when the operation is complete.
+
+ 
+### Favorites
+The favorites member of the API object is an object supporting the Favorites feature:
+
+- **getState()**: This method returns true if the current page is a favorite of the current viewer.
+- **setState(isFavorite)**: This method sets or clears whether the current page is a favorite of the current viewer. It is asynchronous and returns a Promise.
+
+ 
+### Sample Code
+```javascript
+// This sample assumes you have a favorite button and
+// its text content shows the current favorite state.
+// Likewise, it assumes you have a login button that
+// toggles between 'sign in' and 'sign out' depending
+// on status
+const fb = document.querySelector('#favStatusButton');
+const lb = document.querySelector('#loginButton');
+ 
+// This returns the Slickstream API object,
+// waiting if necessary for loading to complete
+ 
+async function ensureSlickstream() {
+   if (window.slickstream) {
+       return window.slickstream.v1;
+   }
+   return new Promise((resolve, reject) => {
+      document.addEventListener('slickstream-ready', () => {
+         resolve(window.slickstream.v1);
+      });
+   }); 
+}
+ 
+async function updateFavoriteButtonState() {
+   const slickstream = await ensureSlickstream();
+   const isFavorite = slickstream.favorites.getState();
+   fb.textContent = slickstream.favorites.getState() ? `I'm a favorite` : `I'm not a favorite`;
+}
+ 
+// The login button in this example handle three different cases.
+// For normal cases, it shows "log in" or "log out" appropriately.
+async function updateLoginButton() {
+   const slickstream = await ensureSlickstream();
+   switch (slickstream.user.status) {
+      case 'signed-in':
+         lb.textContent = 'Log out';
+         lb.disabled = false;
+         break;
+      case 'client-auth':
+         lb.textContent = slickstream.user.emailAddress;
+         lb.disabled = true; // User cannot affect state 
+         break;
+      case 'anonymous':
+         lb.textContent = 'Log in';
+         lb.disabled = false;
+         break;
+   }
+}
+ 
+fb.addEventListener('click', async() => {
+   const slickstream = await ensureSlickstream();
+   const state = slickstream.favorites.getState();
+   slickstream.favorites.setState(!state);
+});
+ 
+lb.addEventListener('click', async() => {
+   const slickstream = await ensureSlickstream();
+   switch(slickstream.user.status) {
+      case 'signed-in':
+         slickstream.user.signOut();
+         break;
+      case 'anonymous':
+         slickstream.user.openSignInDialog();
+   }
+});
+ 
+// If the favorite state has changed this event will fire and
+// this ensures your display of the state remains correct
+document.addEventListener('slickstream-favorite-change', () => {
+  updateFavoriteButtonState();
+});
+ 
+// If the current user state changes, this will update the 
+// text in the login button accordingly
+document.addEventListener('slickstream-user-status-change', () => {
+  updateLoginButton();
+}
+ 
+// After the page loads, this will ensure your display
+// is updated as soon as the info is available
+updateFavoriteButtonState();
+updateLoginButton();
+```
