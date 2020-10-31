@@ -9,7 +9,7 @@ There are three ways in which website developers can improve integration with Sl
 - [Positioning](#positioning)
 - [Activating](#activating)
 - [Styling](#styling-slickstream-widgets)
-- [Javascript API](#slickstream-javascript-api-v1.0)
+- [Javascript API](#slickstream-javascript-api-v10)
 
 ## Positioning
 
