@@ -13,7 +13,7 @@ There are three ways in which website developers can improve integration with Sl
 
 ## Positioning
 
-Slickstream injects widgets onto a page after the page has loaded.  We inject these widgets into a container (as a child element of that container).  The container is typically a <div> with a certain CSS class.  We are able to add that container itself if necessary.  But it is even better if the page already has the container (as rendered by the server) so that it can pre-allocate space for our widget.  Allocating space reduces the [Cumulative Layout Shift (CLS)](https://web.dev/cls/) on the page and lets you be as specific as you like about the positioning of the Slickstream widget.  Our widgets are responsive and will use the available space appropriately.
+Slickstream injects widgets onto a page after the page has loaded.  We inject these widgets into a container (as a child element of that container).  The container is typically a `<div>` with a certain CSS class.  We are able to add that container itself if necessary.  But it is even better if the page already has the container (as rendered by the server) so that it can pre-allocate space for our widget.  Allocating space reduces the [Cumulative Layout Shift (CLS)](https://web.dev/cls/) on the page and lets you be as specific as you like about the positioning of the Slickstream widget.  Our widgets are responsive and will use the available space appropriately.
 
 ### Filmstrip
 
@@ -203,7 +203,7 @@ The favorites member of the API object is an object supporting the Favorites fea
 
  
 ### Sample Code
-```
+```javascript
 // This sample assumes you have a favorite button and
 // its text content shows the current favorite state.
 // Likewise, it assumes you have a login button that
