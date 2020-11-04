@@ -56,6 +56,14 @@ Slickstream lets you inject a simple game on the page based on the page's recomm
 <div class="slick-game-panel"></div>
 ```
 
+Games are laid out as a square, and a footer of about `122px` with instructions for the game. So, if you add the game in a `300px` container, the height would be about `422px`. This can be useful if you'd like to pre-allocate height in your layout for the game. 
+
+```css
+.slick-game-panel {
+  min-height: 422px;
+}
+```
+
 ## Activating
 
 You may want to create a custom button or menu item that activates certain Slickstream features, including the search and discovery panel.  (If you wish to activate Slickstream's sign-up/sign-in dialog, use the [Client API](#slickstream-javascript-api-v1.0) below.)
