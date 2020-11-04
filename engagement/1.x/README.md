@@ -47,6 +47,15 @@ To inject a content grid anywhere on the page, create a `div` with the class `sl
 
 Note in this example, the `data-config` attribute is set to identify the configuration set in the portal. If it is not specified, the first or default config is used.
 
+### Games
+
+Slickstream lets you inject a simple game on the page based on the page's recommendations. Make sure Games are turned on in your site's config page. To specify where to inject the game, create a `div` with the class `slick-game-panel`. You may also choose to put a title for the game. 
+
+```html
+<h3>More delicious distraction...</h3>
+<div class="slick-game-panel"></div>
+```
+
 ## Activating
 
 You may want to create a custom button or menu item that activates certain Slickstream features, including the search and discovery panel.  (If you wish to activate Slickstream's sign-up/sign-in dialog, use the [Client API](#slickstream-javascript-api-v1.0) below.)
