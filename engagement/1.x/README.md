@@ -189,7 +189,7 @@ slick-content-grid {
 }
 ```
 
-**--slick-grid-cell-height**: Overrides the height of images in the grid. Default value is 128px.The width of the images is flexible and adjust automatically to the grid width and the number of items in the grid.
+**--slick-grid-cell-height**: Overrides the height of images in the grid. Default value is 128px. The width of the images is flexible and adjust automatically to the grid width and the number of items in the grid.
 
 **--slick-grid-page-item-bg**: Overrides the background of the grid. The content grid assumes it's placed on a white background. Use this property to match the color of the background of the grid. 
 
