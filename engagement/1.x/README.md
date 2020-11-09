@@ -178,6 +178,21 @@ The floating buttons (heart, search) are themed automatically based on the site'
 
 **--slick-discovery-line-height**: Line height of the text in search results
 
+### Content Grid 
+
+Text in content grid inherits the font styles from the parent, but the `line-height` is set to `1.5`. To override the `line-height`, set the styles on the `slick-content-grid element`. This is also where you can override other font properties. 
+
+```css
+slick-content-grid {
+  line-height: 1.2;
+  font-family: 'Open Sans';
+}
+```
+
+**--slick-grid-cell-height**: Overrides the height of images in the grid. Default value is 128px.The width of the images is flexible and adjust automatically to the grid width and the number of items in the grid.
+**--slick-grid-page-item-bg**: Overrides the background of the grid. The content grid assumes it's placed on a white background. Use this property to match the color of the background of the grid. 
+
+
 ## Slickstream Javascript API v1.0
 
 The Slickstream Javascript API provides access to a minimal set of Slickstream services from within the browser.  This API will be expanded in the next release to cover most Slickstream capabilities.  
