@@ -19,18 +19,18 @@ Here are the list of custom CSS properties to style the film strip:
 
 **--slick-filmstrip-cell-gap**: Sets the gap in pixels between the items in the filmstrip
 
-**--slick-filmstrip-cell-height**: Sets the height of each item in the filmstrip
+**--slick-filmstrip-cell-height**: Sets the height of each item in the filmstrip in pixels (do not include units)
 
-**--slick-filmstrip-cell-width**: Sets the width of each item in the filmstrip
+**--slick-filmstrip-cell-width**: Sets the width of each item in the filmstrip in pixels (do not include units)
 
-**--slick-filmstrip-image-width**: The width of the image. The height is automatically set based on the item height.
+**--slick-filmstrip-image-width**: The width of the image, including units such as px.  The height is automatically set based on the item height.
 
 So for a cell 200px wide, 100px tall, with an image width of 80px:
 ```css
 .slick-film-strip {
   --slick-filmstrip-cell-width: 200;
   --slick-filmstrip-cell-height: 100;
-  --slick-filmstrip-image-width: 80;
+  --slick-filmstrip-image-width: 80px;
 }
 ```
 
