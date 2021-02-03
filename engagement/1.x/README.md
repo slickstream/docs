@@ -160,19 +160,23 @@ The toolbar uses all the styles in the film strip, and a couple more
 
 The floating buttons (heart, search) are themed automatically based on the site's theme color. But they could be further customized.
 
-**--slick-heartbeat-color**: Color of the heart button
+**--slick-heartbeat-color**: This is usually the same as the site color. It gives the default colors to the FABs and the floating hearts. 
 
-**--slick-heartbeat-background**: Background cplor of the heart button
+**--slick-heartbeat-background**: You can override the background of the Heart FAB by setting this property
 
-**--slick-search-fab-background**: Background color of the search button
+**--slick-search-fab-background**: You can override the background of the Search FAB by setting this property
 
-**--slick-search-fab-color**: Color of the search icon on the button
+**--slick-heart-fab-color**: Overrides the icon color of the Heart FAB
 
-**--slick-btt-fab-background**: Background of the back-to-top button 
+**--slick-search-fab-color**: Overrides the icon color of the Seart FAB
 
-**--slick-btt-fab-color**: Color of the back-to-top icon on the button
+**--slick-btt-fab-background**: Overrides background of the back-to-top button 
+
+**--slick-btt-fab-color**: Overrides color of the back-to-top icon on the button
 
 ### Search Panel
+
+**--slick-discovery-highlight-color**: Overrides the theme color in the Search Panel. This also applies to hearts appearing within the search panel. 
 
 **--slick-discovery-text-highlight-color**: When highlighting ingredients, color used to highlight them
 
