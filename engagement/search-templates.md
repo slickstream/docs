@@ -29,3 +29,23 @@ Custom properties defined in search templates
 ## image-card-details
 
 **--slick-image-details-template-font-family**: Override the font family of the search panel
+
+**--slick-image-details-template-image-shadow**: box shadow of the image
+
+**--slick-image-details-template-image-radius**: radius of image
+
+**--slick-image-details-template-description-color**: description color
+
+
+## text centric medium
+
+**--slick-text-centric-template-font-family**: Override the font family of the search panel only for this template
+
+**--slick-text-centric-template-card-radius**: Card radius
+
+**--slick-text-centric-template-image-radius**: image radius
+
+
+
+
+
