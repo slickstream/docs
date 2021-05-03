@@ -91,4 +91,46 @@ Custom properties defined in search templates
 **--slick-text-on-image-template-line-count**: Number of lines of title to show
 
 
+## text under image
+
+**--slick-text-under-image-template-font-family**: override the font family
+
+**--slick-text-under-image-template-image-radius**: Image radius
+
+**--slick-text-under-image-template-title-font-size**: title font size
+
+**--slick-text-under-image-template-image-height**: Image height - for flex siized only
+
+**--slick-text-under-image-template-card-border**: card border - details cards only
+
+**--slick-text-under-image-template-card-radius**: card radius
+
+**--slick-text-under-image-template-description-font-family**: Description font family
+
+**--slick-text-under-image-template-description-font-size**: description font size (not recommended to change)
+
+**--slick-text-under-image-template-description-color**: description color
+
+*All description styles also apply to ingreditent list*
+
+## Video Details
+
+**--slick-video-template-font-family**: Details card override font family
+
+**--slick-video-template-title-font-size**: Title size
+
+**--slick-video-template-image-radius**: image radius
+
+**--slick-video-template-image-border**: image border
+
+**--slick-video-details-template-description-color**: description color
+
+**--slick-video-template-description-font-size**: description font size
+
+
+
+
+
+
+
 
