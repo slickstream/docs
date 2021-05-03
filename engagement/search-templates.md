@@ -37,6 +37,17 @@ Custom properties defined in search templates
 **--slick-image-details-template-description-color**: description color
 
 
+## text centric wide
+
+**--slick-text-centric-template-font-family**: Override the font family of the search panel only for this template
+
+**--slick-text-centric-template-card-radius**: Card radius
+
+**--slick-text-centric-template-image-radius**: image radius
+
+**--slick-text-centric-template-card-border**: Card border
+
+
 ## text centric medium
 
 **--slick-text-centric-template-font-family**: Override the font family of the search panel only for this template
@@ -45,7 +56,39 @@ Custom properties defined in search templates
 
 **--slick-text-centric-template-image-radius**: image radius
 
+**--slick-text-centric-template-card-border**: Card border
 
+
+## text centric small
+
+**--slick-text-centric-template-font-family**: Override the font family of the search panel only for this template
+
+**--slick-text-centric-template-card-radius**: Card radius
+
+**--slick-text-centric-template-card-border**: Card border
+
+
+## text on image (w/wo favorites)
+
+**--slick-text-on-image-template-font-family**: Override the font fanmily 
+
+**--slick-text-on-image-template-card-shadow**: Card box shadow
+
+**--slick-text-on-image-template-card-hover-shadow**: Card box shadow on hover
+
+**--slick-text-on-image-template-card-radius**: Card radius
+
+**--slick-text-on-image-template-text-bg**: Background of the text overlayed on top of image
+
+**--slick-text-on-image-template-font-color**: Text color
+
+**--slick-text-on-image-template-font-size**: Font size
+
+**--slick-text-on-image-template-font-weight**: font weight
+
+**--slick-text-on-image-template-line-height**: line height
+
+**--slick-text-on-image-template-line-count**: Number of lines of title to show
 
 
 
