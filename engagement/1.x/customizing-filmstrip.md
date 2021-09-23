@@ -54,6 +54,8 @@ So for a cell 200px wide, 100px tall, with an image width of 80px:
 
 **--slick-filmstrip-text-lines**: Number of lines of text to show
 
+**--slick-filmstrip-hyphens**: Configure if a *hyphen* is shown when wrapping long words in a filmstrip. By default the hyphen is shown but can be disabled by setting this to `none`
+
 ## Custom Filmstrip Cells
 
 If you'd like to break away from the standard layout of the items in the filmstrip, you can define your own layout. 
