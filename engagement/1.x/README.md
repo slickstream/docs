@@ -66,13 +66,13 @@ Games are laid out as a square, and a footer of about `122px` with instructions 
 
 ## Activating
 
-You may want to create a custom button or menu item that activates certain Slickstream features, including the search and discovery panel.  (If you wish to activate Slickstream's sign-up/sign-in dialog, use the [Client API](#slickstream-javascript-api-v1.0) below.)
+You may want to create a custom button or menu item that activates certain Slickstream features, including the search and favorites panel.  (If you wish to activate Slickstream's sign-up/sign-in dialog, use the [Client API](#slickstream-javascript-api-v1.0) below.)
 
-To activate the search and discovery panel, there are two ways to do this:
+To activate the search/discovery panel, there are two ways to do this:
 
 ### Use `<a>` links
 
-Let's say you have a button and you'd like it to open Slickstream's search when clicked. You can put that button inside an anchor where the href is set to `#slick-search`
+Let's say you have a button and you'd like it to open Slickstream's search when clicked. You can put that button inside an anchor where the href is set to **`#search`**
 
 ```html
 <a href="#slick-search">
@@ -80,11 +80,16 @@ Let's say you have a button and you'd like it to open Slickstream's search when 
 </a>
 ```
 
+To open the search panel to a specific search query, set the url to **`#search?q=query`** e.g. `#search?q=curry`
+
 Similarly you can configure the button to open the panel into different states by setting the `href` to:
-* **`#slick-search-favorites`**: for listing viewer's favorites
-* **`#slick-search-related`**:  for listing other posts that are related to the current page
-* **`#slick-search-recent`**:  for listing the latest posts, or
-* **`#slick-search-popular`**:  ror popular posts
+* **`#list/stories`**: for listing all the stories
+* **`#list/recent`**: for recent pages
+* **`#list/my-recent`**: for pages recently visited by the user
+* **`#list/popular`**: for popular pages
+* **`#list/videos`**: lists all the videos
+* **`#list/related`**: for pages related to the current page
+* **`#list/related`**: to list all the user's favorites
 
 ### Launching via JavaScript
 
