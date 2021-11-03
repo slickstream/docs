@@ -89,7 +89,7 @@ Similarly you can configure the button to open the panel into different states b
 * **`#list/popular`**: for popular pages
 * **`#list/videos`**: lists all the videos
 * **`#list/related`**: for pages related to the current page
-* **`#list/related`**: to list all the user's favorites
+* **`#list/my-favorites`**: to list all the user's favorites
 
 ### Launching via JavaScript
 
