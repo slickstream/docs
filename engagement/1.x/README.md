@@ -75,7 +75,7 @@ To activate the search/discovery panel, there are two ways to do this:
 Let's say you have a button and you'd like it to open Slickstream's search when clicked. You can put that button inside an anchor where the href is set to **`#search`**
 
 ```html
-<a href="#slick-search">
+<a href="#search">
   <button>Search</button>
 </a>
 ```
