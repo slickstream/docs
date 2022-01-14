@@ -1,0 +1,179 @@
+<style>
+  * {box-sizing: border-box;}
+  .horizontal {display: flex; flex-direction: row;}
+  .vertical {display: flex; flex-direction: column;}
+  .center {align-items: center;}
+  .flex {flex: 1;}
+  #card {
+    font-family: var(--slick-title-under-image-template-font-family, inherit);
+    background: var(--slick-search-panel-background, white);
+    font-size: 13px;
+    padding: 10px;
+    position: relative;
+  }
+  mark {
+    background: none;
+    color: inherit;
+    font-weight: bold;
+  }
+  a#name {
+    font-size: var(--slick-title-under-image-template-title-font-size, 14px);
+    text-decoration: none;
+    color: inherit;
+    outline: none;
+    margin: 8px 0 0;
+    display: block;
+    word-break: break-word;
+    -webkit-line-clamp: var(--slick-title-under-image-template-line-count, 2);
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    overflow: hidden;
+    hyphens: auto;
+    line-height: 1.5;
+    height: calc(var(--slick-title-under-image-template-line-count, 2) * 1.5em);
+  }
+  a#name:focus {
+    color: var(--slick-discovery-highlight-color, #2196f3);
+  }
+  a#imageLink {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    outline: none;
+    border-radius: var(--slick-title-under-image-template-image-radius, 5px);
+    overflow: hidden;
+    position: relative;
+  }
+  slick-image-fit {
+    transition: transform 0.3s ease;
+  }
+  a#imageLink:focus slick-image-fit {
+    transform: scale(1.05);
+  }
+  #floatedCell {
+    position: absolute;
+    right: 0;
+    bottom: 100%;
+    display: block;
+  }
+  slick-favorite-button {
+    border-radius: 20px 0 0 0;
+    cursor: initial;
+    color: var(--slick-discovery-highlight-color, #2196f3);
+    background: var(--slick-search-panel-background, rgba(255,255,255,1));
+    height: 30px;
+  }
+  #ratingPanel {
+    padding: 6px 0;
+    font-size: 12px;
+    color: #757575;
+    line-height: 16px;
+    --slick-rating-icon-size: 16px;
+  }
+  slick-rating-bar {
+    margin: 0 4px;
+  }
+  #sectionPanel {
+    color: var(--slick-title-under-image-section-color, #70757a);
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-top: 8px;
+    margin-bottom: -6px;
+  }
+  #sectionLink {
+    text-transform: uppercase;
+  }
+  a.link {
+    text-decoration: none;
+    color: inherit;
+    outline: none;
+  }
+  #playButton {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: white;
+    background: rgba(0,0,0,0.3);
+    border-radius: 50%;
+    padding: 4px;
+    margin-left: -20px;
+    margin-top: -25px;
+    pointer-events: none;
+  }
+  #playButton soso-icon {
+    width: 32px;
+    height: 32px;
+    display: block;
+  }
+</style>
+<style>
+  @media(hover:hover) {
+    #card:hover a#name {
+      color: var(--slick-discovery-highlight-color, #2196f3);
+    }
+    #card:hover slick-image-fit{
+      transform: scale(1.05);
+    }
+    a.link:hover {
+      color: var(--slick-discovery-highlight-color, #2196f3);
+    }
+  }
+</style>
+<style rtl>
+  :host([dir="rtl"]) #floatedCell {
+    right: initial;
+    left: 0;
+  }
+  :host([dir="rtl"]) slick-favorite-button {
+    border-radius: 0 20px 0 0;
+  }
+</style>
+<div id="card" class="vertical">
+  <a id="imageLink" aria-label="{{titleText}}" href="{{navigationUrl}}">
+    <slick-image-fit
+      src="{{imageThumbnail}}"
+      overlay="{{imageOverlayText}}"
+      imagewidth="{{imageWidth}}"
+      imageheight="{{imageHeight}}"
+      ratio="{{imageAspectRatio}}"
+      containment="{{imageContainment}}"></slick-image-fit>
+    
+    {{#isVideo}}
+    <div id="playButton">
+      <soso-icon icon="play"></soso-icon>
+    </div>
+    {{/isVideo}}
+  </a>
+
+  <div style="position: relative;">
+
+    {{#section}}
+      <div id="sectionPanel" class="horizontal center">
+        <a id="sectionLink" class="link" data-section {{#sectionUrl}}href="{{sectionUrl}}"{{/sectionUrl}}>{{&section}}</a>
+      </div>
+    {{/section}}
+
+    <a id="name" href="{{navigationUrl}}">
+      <span data-title-html>{{&titleHtml}}</span>
+    </a>
+
+    {{#hasRating}}
+    <div id="ratingPanel" class="horizontal center">
+      <span>{{recipe.avgRating}}</span>
+      <slick-rating-bar rating="{{recipe.avgRating}}"></slick-rating-bar>
+      <span>({{recipe.reviewCount}})</span>
+    </div>
+    {{/hasRating}}
+    
+    {{^isVideo}}
+    {{#allowFavorites}}
+    <div id="floatedCell">
+      <slick-favorite-button></slick-favorite-button>
+    </div>
+    {{/allowFavorites}}
+    {{/isVideo}}
+    
+  </div>
+</div>
