@@ -1,0 +1,286 @@
+<style>
+  * {box-sizing: border-box;}
+  .horizontal {display: flex; flex-direction: row;}
+  .vertical {display: flex; flex-direction: column;}
+  .center {align-items: center;}
+  .flex {flex: 1;}
+  mark {
+    background: none;
+    color: inherit;
+    font-weight: bold;
+  }
+  #cardContainer {
+    padding: 10px;
+    height: 100%;
+  }
+  #card {
+    font-family: var(--slick-details-template-font-family, inherit);
+    background: var(--slick-search-card-background, white);
+    position: relative;
+    border: var(--slick-details-template-card-border, 1px solid #dfe1e5);
+    border-radius: var(--slick-details-template-card-radius, 8px);
+    overflow: hidden;
+    height: 100%;
+  }
+  a#imageLink {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    outline: none;
+    overflow: hidden;
+    position: relative;
+  }
+  slick-image-fit {
+    transition: transform 0.3s ease;
+  }
+  a#imageLink:focus slick-image-fit {
+    transform: scale(1.05);
+  }
+  #playButton {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: white;
+    background: rgba(0,0,0,0.3);
+    border-radius: 50%;
+    padding: 4px;
+    margin-left: -20px;
+    margin-top: -25px;
+    pointer-events: none;
+  }
+  #playButton soso-icon {
+    width: 32px;
+    height: 32px;
+    display: block;
+  }
+  #sectionPanel {
+    color: var(--slick-details-template-section-color, #70757a);
+    font-size: 12px;
+    letter-spacing: 0.5px;
+  }
+  #sectionLink {
+    text-transform: uppercase;
+  }
+  a.link {
+    text-decoration: none;
+    color: inherit;
+    outline: none;
+    white-space: nowrap;
+    max-width: 140px;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 4px;
+  }
+  #floatedCell {
+    position: absolute;
+    right: 0;
+    bottom: 100%;
+    display: block;
+  }
+  slick-favorite-button {
+    border-radius: 20px 0 0 0;
+    cursor: initial;
+    color: var(--slick-discovery-highlight-color, #2196f3);
+    background: var(--slick-search-card-background, rgba(255,255,255,1));
+    height: 30px;
+    padding-right: 12px;
+  }
+  #infoPanel {
+    position: relative;
+    padding: 15px;
+  }
+  a#name {
+    margin-bottom: 4px;
+    font-size: var(--slick-details-template-title-font-size, 16px);
+    text-decoration: none;
+    color: inherit;
+    outline: none;
+    display: block;
+    word-break: break-word;
+    -webkit-line-clamp: var(--slick-details-template-title-line-count, 2);
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    overflow: hidden;
+    hyphens: auto;
+    line-height: 1.5;
+    max-height: calc(var(--slick-details-template-title-line-count, 2) * 1.5em);
+  }
+  a#name:focus {
+    color: var(--slick-discovery-highlight-color, #2196f3);
+  }
+  #description {
+    font-size: var(--slick-details-template-description-font-size, 14px);
+    color: var(--slick-details-template-description-color, #70757a);
+    line-height: 1.5;
+    word-break: break-word;
+    -webkit-line-clamp: var(--slick-details-description-title-line-count, 2);
+    -webkit-box-orient: vertical;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
+    overflow: hidden;
+    display: -webkit-box;
+    max-height: calc(var(--slick-details-template-description-line-count, 2) * 1.5em);
+  }
+  #textPanel {
+    min-height: calc((var(--slick-details-template-description-line-count, 2) * var(--slick-details-template-description-font-size, 14px) * 1.5) + (var(--slick-details-template-title-line-count, 2) * var(--slick-details-template-title-font-size, 16px) * 1.5) + 4px);
+  }
+  #textPanel.nodescription {
+    min-height: calc((var(--slick-details-template-title-line-count, 2) * var(--slick-details-template-title-font-size, 16px) * 1.5) + 4px);
+  }
+  #ratingPanel {
+    padding: 10px 0 0;
+    font-size: 12px;
+    color: var(--slick-details-template-meta-text-color, #757575);
+    line-height: 16px;
+    --slick-rating-icon-size: 16px;
+  }
+  slick-rating-bar {
+    margin: 0 4px;
+  }
+  .readingTime {
+    padding: 10px 0 0;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    white-space: nowrap;
+    line-height: 16px;
+    color: var(--slick-details-template-meta-text-color, #757575);
+    font-style: var(--slick-details-template-meta-font-style, italic);
+  }
+  time {
+    letter-spacing: 0.3px;
+    color: var(--slick-details-template-time-color, #70757a);
+  }
+
+  #card.has-ingreditents #sectionPanel {
+    display: none;
+  }
+  #card.has-ingreditents #description {
+    display: none;
+  }
+  #card.has-ingreditents #textPanel {
+    --slick-details-template-title-line-count: 1;
+    min-height: calc((var(--slick-details-template-title-line-count, 2) * var(--slick-details-template-title-font-size, 16px) * 1.5) + 4px);
+    flex: initial;
+  }
+  #card.has-ingreditents #ratingPanel {
+    padding: 0;
+  }
+  #card.has-ingreditents .readingTime {
+    padding: 0;
+  }
+  #ingPanel {
+    border-top: var(--slick-details-template-ing-top-border, 1px solid #dfe1e5);
+    padding: 8px 0px 0;
+    margin-top: 8px;
+    font-size: var(--slick-details-template-ingredients-font-size, 14px);
+    color: var(--slick-details-template-description-color, #70757a);
+    line-height: 1.5;
+  }
+  
+</style>
+<style>
+  @media(hover:hover) {
+    #card:hover a#name {
+      color: var(--slick-discovery-highlight-color, #2196f3);
+    }
+    #card:hover slick-image-fit{
+      transform: scale(1.05);
+    }
+    a.link:hover {
+      color: var(--slick-discovery-highlight-color, #2196f3);
+    }
+  }
+</style>
+<style rtl>
+  :host([dir="rtl"]) #floatedCell {
+    right: initial;
+    left: 0;
+  }
+  :host([dir="rtl"]) slick-favorite-button {
+    border-radius: 0 20px 0 0;
+  }
+</style>
+
+<div id="cardContainer">
+  <div id="card" class="vertical {{#ingredientListHtml}}has-ingreditents{{/ingredientListHtml}}">
+    <a id="imageLink" aria-label="{{titleText}}" href="{{navigationUrl}}">
+      <slick-image-fit 
+        src="{{imageFull}}" 
+        ratio="{{imageAspectRatio}}"
+        overlay="{{imageOverlayText}}"
+        imagewidth="{{imageWidth}}"
+        imageheight="{{imageHeight}}" 
+        containment="{{imageContainment}}"></slick-image-fit>
+
+      {{#isVideo}}
+      <div id="playButton">
+        <soso-icon icon="play"></soso-icon>
+      </div>
+      {{/isVideo}}
+    </a>
+    <div id="infoPanel" class="flex vertical">
+      <div id="sectionPanel" class="horizontal center">
+        {{#section}}
+          <a id="sectionLink" class="link" data-section {{#sectionUrl}}href="{{sectionUrl}}"{{/sectionUrl}}>{{&section}}</a>
+        {{/section}}
+        {{#author}}
+          {{#section}}
+            <span style="margin: 0 0.5em 4px;"> • </span>
+          {{/section}}
+          <a class="link" data-author {{#authorUrl}}href="{{authorUrl}}"{{/authorUrl}}>{{&author}}</a>
+        {{/author}}
+      </div>
+
+      <div id="textPanel" class="flex {{^description}}nodescription{{/description}}">
+        <a id="name" href="{{navigationUrl}}">
+          <span data-title-html>{{&titleHtml}}</span>
+        </a>
+        {{#description}}
+        <div id="description">
+          {{#published}}<time datetime="{{published}}">{{published}} - </time>{{/published}}
+          <span data-description>{{&description}}</span>
+        </div>
+        {{/description}}
+      </div>
+
+      <div class="horizontal center">
+        {{#hasRating}}
+        <div id="ratingPanel" class="horizontal center">
+          <span>{{recipe.avgRating}}</span>
+          <slick-rating-bar rating="{{recipe.avgRating}}"></slick-rating-bar>
+          <span>({{recipe.reviewCount}})</span>
+        </div>
+        {{/hasRating}}
+        <span class="flex"></span>
+        
+        {{#cookingTime}}
+          <div class="readingTime">{{cookingTime}}</div>
+        {{/cookingTime}}
+        
+        {{^cookingTime}}
+        {{#readingTime}}
+          <div class="readingTime">{{readingTime}}</div>
+        {{/readingTime}}
+        {{/cookingTime}}
+      </div>
+
+      {{#ingredientListHtml}}
+      <div id="ingPanel" class="flex">
+        <span data-ingredients>{{&ingredientListHtml}}</span>
+      </div>
+      {{/ingredientListHtml}}
+
+      {{^isVideo}}
+      {{#allowFavorites}}
+      <div id="floatedCell">
+        <slick-favorite-button></slick-favorite-button>
+      </div>
+      {{/allowFavorites}}
+      {{/isVideo}}
+    </div>
+  </div>
+</div>
