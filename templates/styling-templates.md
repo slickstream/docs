@@ -2,7 +2,7 @@
 
 Slickstream shows search results using a number of templates. Each template exposes some CSS properties to customize the styling of the template. This document lists the CSS custom properties exposed by each templates
 
-### Details Template
+## Details Template
 
 **--slick-details-template-font-family**: Normally the font is inherited. So you can set the font on the search panel or the DCM and it will get picked up. But if you want to specify a font family that is not inherited, use this property. 
 
@@ -30,7 +30,7 @@ Slickstream shows search results using a number of templates. Each template expo
 
 **--slick-details-template-time-color**: The color of the published time.
 
-### Title Under Image Template
+## Title Under Image Template
 
 **--slick-title-under-image-template-font-family**:  Normally the font is inherited. So you can set the font on the search panel or the DCM and it will get picked up. But if you want to specify a font family that is not inherited, use this property. 
 
@@ -45,7 +45,7 @@ Slickstream shows search results using a number of templates. Each template expo
 **--slick-title-under-image-section-color**: Color of the *section* field in the search result. The section is like a category this result page belongs to. Default color is `#70757a`.
 
 
-### Title On Image Template
+## Title On Image Template
 
 **--slick-text-on-image-template-font-family**: Normally the font is inherited. So you can set the font on the search panel or the DCM and it will get picked up. But if you want to specify a font family that is not inherited, use this property. 
 
