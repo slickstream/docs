@@ -32,7 +32,7 @@ The script is available at: https://r.slickstream.com/highlighter/highlighter-v1
 
 When the highligher script is loaded, it created a global `window.$highlight` function. This function takes in two arguments
 
-** window.$highlight(selector: string, timeout?: number)
+**window.$highlight(selector: string, timeout?: number)**
 
 _**selector**_ is a CSS selector that matches the element to highlight.
 
