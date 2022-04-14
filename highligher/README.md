@@ -1,6 +1,6 @@
 # Highlighter
 
-The Highligher script highlights any element on the web page when it scrolls into view the first time. 
+The Highlighter script highlights any element on the web page when it scrolls into view the first time. 
 This effect is achieved by placing the rest of the content behind a translucent background. 
 
 - If you click on the background, the highlighting goes away
@@ -8,8 +8,8 @@ This effect is achieved by placing the rest of the content behind a translucent 
 - You can optionally add a timer to automatically remove the highlighting after the specified amount of time.
 
 ## Usage
-In your page, usually at the bottom of the body, include a `<script>` tag to source the highligher script. 
-Then in your own script you can attach an element to to the highlighter by calling the `window.$highlight` function. 
+In your page, usually at the bottom of the body, include a `<script>` tag to source the highlighter script. 
+Then in your own script you can attach an element to the highlighter by calling the `window.$highlight` function. 
 
 The script is available at: https://r.slickstream.com/highlighter/highlighter-v1.js
 
@@ -30,7 +30,7 @@ The script is available at: https://r.slickstream.com/highlighter/highlighter-v1
 
 ### window.$highlight
 
-When the highligher script is loaded, it created a global `window.$highlight` function. This function takes in two arguments
+When the highlighter script is loaded, it created a global `window.$highlight` function. This function takes in two arguments
 
 **window.$highlight(selector: string, timeout?: number)**
 
@@ -40,7 +40,7 @@ _**timeout**_ is an optional field. If set, the highligher will remove the highl
 
 ## Styling 
 
-Highligher exposes a few CSS properties that can be configured by the user. 
+Highlighter exposes a few CSS properties that can be configured by the user. 
 
 **--highlight-backdrop-color** sets the color of the backdrop. Default value is `rgba(0,0,0,0.6)`
 
