@@ -254,6 +254,7 @@ The favorites member of the API object is an object supporting the Favorites fea
 
 - **getState()**: This method returns true if the current page is a favorite of the current viewer.
 - **setState(isFavorite)**: This method sets or clears whether the current page is a favorite of the current viewer. It is asynchronous and returns a Promise.
+- **getCount()**: This method returns the total number of favorites for the current page.
 
  
 ### Sample Code
