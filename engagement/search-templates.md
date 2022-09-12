@@ -1,4 +1,4 @@
-# Template styles
+# Template styles (Search 3. Outdated)
 
 Custom properties defined in search templates
 
